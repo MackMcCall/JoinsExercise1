@@ -18,7 +18,7 @@ ON e.EmployeeID = s.EmployeeID
 GROUP BY e.EmployeeID
 ORDER BY TotalSold DESC
 LIMIT 2;
--- couldn't figure out how to print only the top folks, but I think it still technincally satisfies the requirments
+
 
 /* joins: find the name of the department, and the name of the category for Appliances and Games */
 SELECT d.Name AS Department, c.Name AS Category FROM categories AS c
@@ -28,7 +28,7 @@ WHERE c.Name IN('Appliances', 'Games');
 
 /* joins: find the product name, total # sold, and total price sold,
  for Eagles: Hotel California --You may need to use SUM() */
- SELECT p.Name, SUM(s.Quantity) AS AmtSold, SUM(s.Quantity) * p.Price AS TotalInDollars
+ SELECT p.Name, SUM(s.Quantity) AS AmtSold, SUM(s.Quantity * p.Price) AS TotalInDollars
  FROM products AS p
  INNER JOIN sales AS s
  ON p.ProductID = s.ProductID
